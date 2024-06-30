@@ -1,4 +1,8 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useState } from "react"
+
+import { useCreateOrderMutation } from '../state/ordersApi' 
 
 const initialFormState = { // suggested
   fullName: '',
@@ -10,7 +14,15 @@ const initialFormState = { // suggested
   '5': false,
 }
 
+
+
+
 export default function PizzaForm() {
+
+    //states
+    const [fName, setFName] = useState(initialFormState.fullName)
+    const [size, setSize] = useState(initialFormState.size)
+    const [toppings, setToppings] = useState([])
   return (
     <form>
       <h2>Pizza Form</h2>
