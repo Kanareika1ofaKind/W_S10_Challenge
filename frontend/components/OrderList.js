@@ -39,11 +39,11 @@ export default function OrderList() {
             <ol>
                 {orders?.filter(ps => pizzaSize == 'All' ? true : ps.size === pizzaSize).map((order) => {
 
-                  const { id, customer, size, toppings } = order
+                  const { id, customer, size, toppings = []} = order
             return (
                 <li key={id}>
                 <div>
-                        {customer} ordered a size {size.toUpperCase()} with {toppings.length} topping{toppings.length == 1? '' : 's'}
+                        {customer} ordered a size {size.toUpperCase()} with {toppings.length == 0? 'no' : toppings.length} topping{toppings.length == 1? '' : 's'}
                     </div>
               </li>
             )
